@@ -1,0 +1,13 @@
+This will contain the notes of some functions/methods that are complex
+
+------------------------------------
+
+Inside 'move_tiles' function
+(we are mostly using x and y coordinate which is the left-most starting coordinates of the tiles(top-left is 0,0)
+
+delta: Here, delta is a tuple with 2 values(x and y-axis, used in Tiles class) MOVE_VEL is used to determine how much x coordinate is changing with respect to the tile, we use -(left) and +(right) coordinates to make it look like it's moving MOVE_VEL per frame
+get_next_tile: this function is use <dictionary>.get("key") function which takes a dictionary and returns the value of the key provided
+merge_check = we are merging the tiles when the current tile is overlapping the next tile completely, which is why this function takes coordinates of current tile and next_tile + MOVE_VEL(which is speed, gives starting coordinate + 20): we can merge tiles when the difference between their starting axis is MOVE_VEL
+move_check = we are moving the tiles but not merging them, so we check if the x-axis of current tile(leftmost or start-of-tile coordinate) is bigger than (x-axis+WIDTH)rightmost/end-of-tile coordinate or next tile + MOVE_VEL(speed)
+sorted_tiles = we are using sorted() function where we give it a list of keys of tiles(the keys are in ROW-COL format), the basic to sort will be determined my sort_func(because different directions need different sorting) and reverse is also determined by direction
+
